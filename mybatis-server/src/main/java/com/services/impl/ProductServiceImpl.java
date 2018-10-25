@@ -45,9 +45,6 @@ public class ProductServiceImpl extends AbstractService implements ProductServic
     @Override
     @Transactional(rollbackFor = HomeinnsException.class)
     public boolean insertProduct(ProductDTO productDTO) {
-        if (productDTO == null) {
-            throw new ProductException(ProductEnum.PRODUCT_NOT_NULL);
-        }
         Product product = new Product();
         BeanUtils.copyProperties(productDTO, product);
         log.info("==== 增加商品信息！ ====");
