@@ -31,6 +31,7 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.SR1</spring-cloud.version>
         <swagger.version>2.8.0</swagger.version>
+        <mybatis-common.version>0.0.1-SNAPSHOT</mybatis-common.version>
     </properties>
 
     <dependencyManagement>
@@ -51,6 +52,11 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com</groupId>
+                <artifactId>mybatis-common</artifactId>
+                <version>${mybatis-common.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

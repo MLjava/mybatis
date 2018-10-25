@@ -33,11 +33,7 @@ public class ProductController extends AbstractService {
     @GetMapping("/getproductid")
     public ResultVO getProductById(Integer id) {
         ProductDTO productDTO = null;
-        try {
-            productDTO = productService.getProductBId(id);
-        } catch (ProductException e) {
-            return ResultUtils.failure(e);
-        }
+        productDTO = productService.getProductBId(id);
         ProductVO productVO = new ProductVO();
         BeanUtils.copyProperties(productDTO, productVO);
         return ResultUtils.success(productVO);
@@ -51,12 +47,7 @@ public class ProductController extends AbstractService {
         productDTO.setProductName(product.getProductName());
         productDTO.setProductPrice(product.getProductPrice());
         productDTO.setProductCategory(product.getProductCategory());
-        boolean flag = false;
-        try {
-            flag = productService.insertProduct(productDTO);
-        } catch (ProductException e) {
-            return ResultUtils.failure(e);
-        }
+        boolean flag = productService.insertProduct(productDTO);
         return ResultUtils.success(flag);
     }
 

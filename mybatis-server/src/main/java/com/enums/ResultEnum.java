@@ -10,7 +10,10 @@ import lombok.Getter;
 @Getter
 public enum ResultEnum {
 
-    ;
+    /**
+     * 统一错误
+     */
+    NOT_KNOW_EXCEPTION(500, "糟糕了，服务器出现错误了！");
 
     private Integer code;
 

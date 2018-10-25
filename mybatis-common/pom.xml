@@ -20,6 +20,10 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com</groupId>
+            <artifactId>mybatis-common</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

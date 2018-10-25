@@ -14,7 +14,7 @@ public class CommonException extends HomeinnsException {
         super(code, message);
     }
 
-    public CommonException(ProductEnum productEnum) {
+    public CommonException(ResultEnum productEnum) {
         this(productEnum.getCode(), productEnum.getMessage());
     }
 }
