@@ -1,15 +1,14 @@
 package com.controller;
 
+import com.abstracts.AbstractController;
+import com.convert.Product2ProductDTOConvert;
 import com.dto.ProductDTO;
-import com.exception.ProductException;
 import com.pojo.Product;
 import com.services.ProductService;
-import com.abstracts.AbstractService;
 import com.util.ResultUtils;
 import com.util.ResultVO;
 import com.vo.ProductVO;
 import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
  **/
 @RestController
 @RequestMapping("/homeinns")
-public class ProductController extends AbstractService {
+public class ProductController extends AbstractController {
 
     @Autowired
     private ProductService productService;
@@ -42,11 +41,7 @@ public class ProductController extends AbstractService {
     @PostMapping("/insertproduct")
     @ApiOperation(value = "增加商品信息", notes = "增加商品信息")
     public ResultVO insertProduct(@RequestBody Product product) {
-        ResultVO resultVO = new ResultVO();
-        ProductDTO productDTO = new ProductDTO();
-        productDTO.setProductName(product.getProductName());
-        productDTO.setProductPrice(product.getProductPrice());
-        productDTO.setProductCategory(product.getProductCategory());
+        ProductDTO productDTO = Product2ProductDTOConvert.covert(product);
         boolean flag = productService.insertProduct(productDTO);
         return ResultUtils.success(flag);
     }

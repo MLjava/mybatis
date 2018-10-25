@@ -4,6 +4,7 @@ import com.abstracts.AbstractService;
 import com.dao.ProductDao;
 import com.dto.ProductDTO;
 import com.enums.ProductEnum;
+import com.exception.HomeinnsException;
 import com.exception.ProductException;
 import com.pojo.Product;
 import com.services.ProductService;
@@ -42,7 +43,7 @@ public class ProductServiceImpl extends AbstractService implements ProductServic
     }
 
     @Override
-    @Transactional(rollbackFor = ProductException.class)
+    @Transactional(rollbackFor = HomeinnsException.class)
     public boolean insertProduct(ProductDTO productDTO) {
         if (productDTO == null) {
             throw new ProductException(ProductEnum.PRODUCT_NOT_NULL);

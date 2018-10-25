@@ -53,10 +53,11 @@ public class ServiceLogAop {
         ServletRequestAttributes attributes = (ServletRequestAttributes)
                 RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        // ----------- 打印基本信息 --------------//
+        // ----------- 打印基本信息 -------------- //
+        log.info("IP: " + request.getRemoteAddr());
+        log.info("USER: " + request.getRemoteUser());
         log.info("URL: " + request.getRequestURL().toString());
         log.info("HTTP_METHOD: " + request.getMethod());
-        log.info("IP: " + request.getRemoteAddr());
         log.info("CLASS_METHOD: " + joinPoint.getSignature().getDeclaringTypeName() + "."
                 + joinPoint.getSignature().getName());
         log.info("ARGS: " + Arrays.toString(joinPoint.getArgs()));
