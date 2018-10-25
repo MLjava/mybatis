@@ -23,6 +23,7 @@ eureka:
     lease-renewal-interval-in-seconds: 10
     # 这个必须使用true
     prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
 server:
   port: 8888
 # 实行监控
