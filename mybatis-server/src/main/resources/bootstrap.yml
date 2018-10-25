@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    name: mybatis
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mybatis?useSSL=false
+    username: root
+    password: malin
+  application:
+    name: MyBatis
+mybatis:
+  mapper-locations: classpath:/mapping/**/*Mapper.xml
+  type-aliases-package: com.pojo
+logging:
+  level:
+    com.dao: debug
+eureka:
+  client:
+    service-url:
+      defaultZone: http://172.23.216.152:8761/eureka, http://172.23.216.153:8761/eureka, http://172.23.216.154:8761/eureka
+      healthcheck: true
+  instance:
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
+    # 这个必须使用true
+    prefer-ip-address: true
+server:
+  port: 8888
+# 实行监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
