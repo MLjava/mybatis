@@ -30,7 +30,7 @@ public class ProductController extends AbstractService {
     @ApiOperation(value = "根据产品id查询产品具体信息", notes = "根据产品id查询产品具体信息")
     @ApiImplicitParam(name = "id", value = "商品id", dataType = "Integer",
             paramType = "query")
-    @GetMapping("/getproductid")
+    @GetMapping("/getproductbyid")
     public ResultVO getProductById(Integer id) {
         ProductDTO productDTO = null;
         productDTO = productService.getProductBId(id);
