@@ -9,10 +9,14 @@ import com.util.ResultUtils;
 import com.util.ResultVO;
 import com.vo.ProductVO;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author：linma
@@ -44,6 +48,24 @@ public class ProductController extends AbstractController {
         ProductDTO productDTO = Product2ProductDTOConvert.covert(product);
         boolean flag = productService.insertProduct(productDTO);
         return ResultUtils.success(flag);
+    }
+
+    @GetMapping("/getproductall")
+    @ApiOperation(value = "查询所有商品信息", notes = "查询所有商品信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "startPage", value = "起始页", dataType = "Integer",
+            paramType = "query"),
+            @ApiImplicitParam(name = "pageSize", value = "每页要显示的数据", dataType = "Integer",
+            paramType = "query")}
+    )
+    public ResultVO getProductAll(Integer startPage, Integer pageSize) {
+        List<ProductDTO> productAll = productService.findProductAll(startPage, pageSize);
+        List<ProductVO> productVOS = productAll.stream().map(productDTO -> {
+            ProductVO productVO = new ProductVO();
+            BeanUtils.copyProperties(productDTO, productVO);
+            return productVO;
+        }).collect(Collectors.toList());
+        return ResultUtils.success(productVOS);
     }
 
 }

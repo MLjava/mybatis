@@ -4,6 +4,8 @@ import com.pojo.Product;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author：linma
  * @date: 2018/10/26 10:18
@@ -28,5 +30,12 @@ public interface ProductDao {
      * @return
      */
     Integer insertProduct(Product product);
+
+    /**
+     * 查询所有的产品信息
+     *
+     * @return
+     */
+    List<Product> findProductAll();
 
 }

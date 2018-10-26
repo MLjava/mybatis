@@ -28,7 +28,12 @@ public enum ProductEnum {
     /**
      * 商品名称不可以位空！
      */
-    PRODUCT_NAME_NOT_NULL(3, "商品名称不可以位空！");
+    PRODUCT_NAME_NOT_NULL(3, "商品名称不可以位空！"),
+
+    /**
+     * 库存现在没有商品，等待上架！
+     */
+    PRODUCT_IS_EMPTY(4, "库存现在没有商品，等待上架！");
 
     private Integer code;
 

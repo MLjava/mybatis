@@ -35,4 +35,9 @@
           ( product_name, product_price, product_category, product_inventory, update_time )
         VALUES (#{productName}, #{productPrice}, #{productCategory}, #{productInventory}, #{updateTime})
     </insert>
+
+    <select id="findProductAll" resultMap="BaseMapper">
+        <include refid="BaseSql"/>
+    </select>
+
 </mapper>

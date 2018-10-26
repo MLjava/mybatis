@@ -1,6 +1,9 @@
 package com.services;
 
 import com.dto.ProductDTO;
+import com.pojo.Product;
+
+import java.util.List;
 
 /**
  * @author：linma
@@ -24,4 +27,13 @@ public interface ProductService {
      * @return
      */
     boolean insertProduct(ProductDTO productDTO);
+
+    /**
+     * 分页查询
+     *
+     * @param startPage 开始页
+     * @param pageSize 每页要显示的页数
+     * @return
+     */
+    List<ProductDTO> findProductAll(Integer startPage, Integer pageSize);
 }

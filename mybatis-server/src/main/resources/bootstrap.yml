@@ -35,3 +35,9 @@ management:
   endpoint:
     health:
       show-details: always
+# 分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

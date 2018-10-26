@@ -6,6 +6,7 @@ import com.dto.ProductDTO;
 import com.enums.ProductEnum;
 import com.exception.HomeinnsException;
 import com.exception.ProductException;
+import com.github.pagehelper.PageHelper;
 import com.pojo.Product;
 import com.services.ProductService;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author：linma
@@ -56,5 +58,24 @@ public class ProductServiceImpl extends AbstractService implements ProductServic
             throw new ProductException(ProductEnum.PRODUCT_NAME_NOT_NULL);
         }
         return i > 0;
+    }
+
+    @Override
+    public List<ProductDTO> findProductAll(Integer startPage, Integer pageSize) {
+        // 校验分页参数
+        Map<String, Integer> pager = validatePager(startPage, pageSize);
+        // 开始使用分页组件
+        PageHelper.startPage(pager.get("startPage"), pager.get("pageSize"));
+        List<Product> products = productDao.findProductAll();
+        if (products == null || products.size() == 0) {
+            throw new ProductException(ProductEnum.PRODUCT_IS_EMPTY);
+        }
+        // - 使用stream表达式
+        List<ProductDTO> productDTOS = products.stream().map(product -> {
+             ProductDTO productDTO = new ProductDTO();
+             BeanUtils.copyProperties(product, productDTO);
+             return productDTO;
+         }).collect(Collectors.toList());
+        return productDTOS;
     }
 }
