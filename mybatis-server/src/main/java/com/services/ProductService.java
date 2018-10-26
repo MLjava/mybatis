@@ -36,4 +36,20 @@ public interface ProductService {
      * @return
      */
     List<ProductDTO> findProductAll(Integer startPage, Integer pageSize);
+
+    /**
+     * 跟新产品信息
+     *
+     * @param product
+     * @return
+     */
+    boolean updateProduct(ProductDTO productDTO);
+
+    /**
+     * 删除商品信息
+     *
+     * @param productId
+     * @return
+     */
+    boolean deleteProduct(Integer productId);
 }

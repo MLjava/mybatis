@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -53,11 +54,11 @@ public class ProductServiceImpl extends AbstractService implements ProductServic
         BeanUtils.copyProperties(productDTO, product);
         log.info("==== 增加商品信息！ ====");
         product.setUpdateTime(new Date());
-        int i = productDao.insertProduct(product);
+        int record = productDao.insertProduct(product);
         if (StringUtils.isEmpty(productDTO.getProductName())) {
             throw new ProductException(ProductEnum.PRODUCT_NAME_NOT_NULL);
         }
-        return i > 0;
+        return record > 0;
     }
 
     @Override
@@ -78,5 +79,31 @@ public class ProductServiceImpl extends AbstractService implements ProductServic
              return productDTO;
          }).collect(Collectors.toList());
         return productDTOS;
+    }
+
+    @Override
+    @Transactional(rollbackFor = HomeinnsException.class)
+    public boolean updateProduct(ProductDTO productDTO) {
+        if (productDTO.getId() == null) {
+            throw new ProductException(ProductEnum.PRODUCT_ID_IS_NOT_NULL);
+        }
+        Product product = new Product();
+        BeanUtils.copyProperties(productDTO, product);
+        product.setUpdateTime(new Date());
+        int record = productDao.updateProduct(product);
+        return record > 0;
+    }
+
+    @Override
+    @Transactional(rollbackFor = HomeinnsException.class)
+    public boolean deleteProduct(Integer productId) {
+        if (productId == null) {
+            throw new ProductException(ProductEnum.PRODUCT_ID_IS_NOT_NULL);
+        }
+        Product product = new Product();
+        product.setFlag(1);
+        product.setUpdateTime(new Date());
+        int record = productDao.updateProduct(product);
+        return record > 0;
     }
 }
