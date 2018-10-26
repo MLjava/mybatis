@@ -5,23 +5,28 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 /**
- * @@author：linma
- * @date: 2018/10/24 14:09
+ * @author：linma
+ * @date: 2018/10/26 10:18
  * @email: linma@homeinns.com
- */
+ **/
 @Mapper
 @Repository
 public interface ProductDao {
 
-    int deleteByPrimaryKey(Integer id);
+    /**
+     * 根据产品id查询产品信息
+     *
+     * @param productId
+     * @return
+     */
+    Product findProductById(Integer productId);
 
-    int insert(Product record);
+    /**
+     * 插入产品信息
+     *
+     * @param product
+     * @return
+     */
+    Integer insertProduct(Product product);
 
-    int insertSelective(Product record);
-
-    Product selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Product record);
-
-    int updateByPrimaryKey(Product record);
 }

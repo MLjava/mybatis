@@ -24,11 +24,13 @@ public class GlobalException {
      * @param e
      * @return
      */
-    @ExceptionHandler(value = RuntimeException.class)
-    public ResultVO exceptionHandle(RuntimeException e) {
-        if (e instanceof HomeinnsException) {
-            HomeinnsException homeinnsException = (HomeinnsException) e;
-            return ResultUtils.failure(homeinnsException);
+    @ExceptionHandler(value = Exception.class)
+    public ResultVO runtimeExceptionHandle(Exception e) {
+        if (e instanceof RuntimeException) {
+            if (e instanceof HomeinnsException) {
+                HomeinnsException homeinnsException = (HomeinnsException) e;
+                return ResultUtils.failure(homeinnsException);
+            }
         }
         return ResultUtils.failure(new CommonException(ResultEnum.NOT_KNOW_EXCEPTION));
     }

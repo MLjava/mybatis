@@ -1,4 +1,4 @@
-package com.dto;
+package com;
 
 import lombok.Data;
 
@@ -6,19 +6,16 @@ import java.math.BigDecimal;
 
 /**
  * @author：linma
- * @date: 2018/10/25 9:46
+ * @date: 2018/10/26 9:32
  * @email: linma@homeinns.com
  **/
 @Data
-public class ProductDTO {
+public class ShoppingCar {
 
-    private Integer id;
+    private Integer productId;
 
     private String productName;
 
     private BigDecimal productPrice;
 
-    private String productCategory;
-
-    private Integer productInventory;
 }

@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
+
 /**
  * @author：linma
  * @date: 2018/10/24 14:11
@@ -33,7 +35,7 @@ public class ProductServiceImpl extends AbstractService implements ProductServic
             throw new ProductException(ProductEnum.PRODUCT_ID_IS_NOT_NULL);
         }
         log.info("==== 根据商品id查询商品具体信息！ ====");
-        Product product = productDao.selectByPrimaryKey(id);
+        Product product = productDao.findProductById(id);
         if (product == null) {
             throw new ProductException(ProductEnum.PRODUCT_NOT_EXIST);
         }
@@ -48,7 +50,8 @@ public class ProductServiceImpl extends AbstractService implements ProductServic
         Product product = new Product();
         BeanUtils.copyProperties(productDTO, product);
         log.info("==== 增加商品信息！ ====");
-        int i = productDao.insert(product);
+        product.setUpdateTime(new Date());
+        int i = productDao.insertProduct(product);
         if (StringUtils.isEmpty(productDTO.getProductName())) {
             throw new ProductException(ProductEnum.PRODUCT_NAME_NOT_NULL);
         }

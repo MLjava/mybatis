@@ -8,7 +8,7 @@ import com.pojo.Product;
 /**
  * @author：linma
  * @date: 2018/10/25 22:48
- * @email: inma@homeinns.com
+ * @email: linma@homeinns.com
  **/
 public class Product2ProductDTOConvert {
 
@@ -20,6 +20,7 @@ public class Product2ProductDTOConvert {
         productDTO.setProductName(product.getProductName());
         productDTO.setProductPrice(product.getProductPrice());
         productDTO.setProductCategory(product.getProductCategory());
+        productDTO.setProductInventory(product.getProductInventory());
         return productDTO;
     }
 

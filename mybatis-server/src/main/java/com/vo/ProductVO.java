@@ -24,4 +24,7 @@ public class ProductVO {
 
     @JsonProperty("category")
     private String productCategory;
+
+    @JsonProperty("inventory")
+    private Integer productInventory;
 }

@@ -21,8 +21,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com</groupId>
-            <artifactId>mybatis-common</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 
