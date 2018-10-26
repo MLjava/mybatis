@@ -30,23 +30,28 @@ public class ProductController extends AbstractController {
     @Autowired
     private ProductService productService;
 
+    /**
+     * 更新成功标志
+     */
+    private boolean flag = false;
+
     @ApiOperation(value = "根据产品id查询产品具体信息", notes = "根据产品id查询产品具体信息")
-    @ApiImplicitParam(name = "id", value = "商品id", dataType = "Integer",
+    @ApiImplicitParam(name = "productId", value = "商品id", dataType = "Integer",
             paramType = "query")
     @GetMapping("/getproductbyid")
-    public ResultVO getProductById(Integer id) {
+    public ResultVO getProductById(Integer productId) {
         ProductDTO productDTO = null;
-        productDTO = productService.getProductBId(id);
+        productDTO = productService.getProductBId(productId);
         ProductVO productVO = new ProductVO();
         BeanUtils.copyProperties(productDTO, productVO);
         return ResultUtils.success(productVO);
     }
 
-    @PostMapping("/insertproduct")
+    @PatchMapping("/insertproduct")
     @ApiOperation(value = "增加商品信息", notes = "增加商品信息")
     public ResultVO insertProduct(@RequestBody Product product) {
         ProductDTO productDTO = Product2ProductDTOConvert.covert(product);
-        boolean flag = productService.insertProduct(productDTO);
+        flag = productService.insertProduct(productDTO);
         return ResultUtils.success(flag);
     }
 
@@ -66,6 +71,21 @@ public class ProductController extends AbstractController {
             return productVO;
         }).collect(Collectors.toList());
         return ResultUtils.success(productVOS);
+    }
+
+    @ApiOperation(value = "更新产品信息", notes = "更新产品信息")
+    @PostMapping("/updateproduct")
+    public ResultVO updateProduct(@RequestBody Product product) {
+        ProductDTO productDTO = Product2ProductDTOConvert.covert(product);
+        flag = productService.updateProduct(productDTO);
+        return ResultUtils.success(flag);
+    }
+
+    @ApiOperation(value = "删除产品信息", notes = "删除产品信息")
+    @DeleteMapping("/deleteproductbyid")
+    public ResultVO deleteProductById(Integer productId) {
+        flag = productService.deleteProduct(productId);
+        return ResultUtils.success(flag);
     }
 
 }

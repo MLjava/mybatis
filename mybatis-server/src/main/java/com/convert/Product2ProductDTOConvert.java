@@ -17,6 +17,7 @@ public class Product2ProductDTOConvert {
             throw new ProductException(ProductEnum.PRODUCT_NOT_NULL);
         }
         ProductDTO productDTO = new ProductDTO();
+        productDTO.setId(product.getId());
         productDTO.setProductName(product.getProductName());
         productDTO.setProductPrice(product.getProductPrice());
         productDTO.setProductCategory(product.getProductCategory());

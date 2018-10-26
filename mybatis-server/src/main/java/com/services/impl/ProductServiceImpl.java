@@ -13,11 +13,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -102,6 +103,7 @@ public class ProductServiceImpl extends AbstractService implements ProductServic
         }
         Product product = new Product();
         product.setFlag(1);
+        product.setId(productId);
         product.setUpdateTime(new Date());
         int record = productDao.updateProduct(product);
         return record > 0;

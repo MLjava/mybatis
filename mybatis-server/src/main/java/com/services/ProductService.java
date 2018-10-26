@@ -1,7 +1,6 @@
 package com.services;
 
 import com.dto.ProductDTO;
-import com.pojo.Product;
 
 import java.util.List;
 
@@ -40,7 +39,7 @@ public interface ProductService {
     /**
      * 跟新产品信息
      *
-     * @param product
+     * @param productDTO
      * @return
      */
     boolean updateProduct(ProductDTO productDTO);
