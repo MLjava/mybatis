@@ -7,12 +7,14 @@ spring:
     password: malin
   application:
     name: MyBatis
+# mybatis配置
 mybatis:
   mapper-locations: classpath:/mapping/**/*Mapper.xml
   type-aliases-package: com.pojo
 logging:
   level:
     com.dao: debug
+# 服务开始注册到eureka中心里面
 eureka:
   client:
     service-url:
@@ -23,7 +25,7 @@ eureka:
     lease-renewal-interval-in-seconds: 10
     # 这个必须使用true
     prefer-ip-address: true
-    instance-id: ${spring.application.name}:${server.port}
+    instance-id: http://127.0.0.1:${server.port}
 server:
   port: 8888
 # 实行监控

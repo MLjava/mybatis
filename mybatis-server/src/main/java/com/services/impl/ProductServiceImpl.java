@@ -65,6 +65,7 @@ public class ProductServiceImpl extends AbstractService implements ProductServic
         // 校验分页参数
         Map<String, Integer> pager = validatePager(startPage, pageSize);
         // 开始使用分页组件
+        log.info("==== 分页查询数据！ ====");
         PageHelper.startPage(pager.get("startPage"), pager.get("pageSize"));
         List<Product> products = productDao.findProductAll();
         if (products == null || products.size() == 0) {

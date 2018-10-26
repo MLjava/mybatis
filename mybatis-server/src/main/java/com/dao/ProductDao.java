@@ -38,4 +38,20 @@ public interface ProductDao {
      */
     List<Product> findProductAll();
 
+    /**
+     * 根据商品名称查询商品信息
+     *
+     * @param productName
+     * @return
+     */
+    List<Product> fuzzySearchProductByName(String productName);
+
+    /**
+     * 更新产品信息
+     *
+     * @param product
+     * @return
+     */
+    Integer updateProduct(Product product);
+
 }

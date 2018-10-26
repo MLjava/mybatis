@@ -17,5 +17,4 @@ public class ShoppingCar {
     private String productName;
 
     private BigDecimal productPrice;
-
 }

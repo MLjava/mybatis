@@ -9,7 +9,7 @@
         <result column="product_category" property="productCategory"/>
         <result column="product_inventory" property="productInventory"/>
         <result column="update_time" property="updateTime"/>
-        <result column="flag" property="flag" />
+        <result column="flag" property="flag"/>
     </resultMap>
 
     <sql id="BaseSql">
@@ -27,7 +27,8 @@
     </sql>
 
     <select id="findProductById" parameterType="integer" resultMap="BaseMapper">
-        <include refid="BaseSql"/> AND id = #{product}
+        <include refid="BaseSql"/>
+        AND id = #{product}
     </select>
 
     <insert id="insertProduct" parameterType="com.pojo.Product">
@@ -39,5 +40,37 @@
     <select id="findProductAll" resultMap="BaseMapper">
         <include refid="BaseSql"/>
     </select>
+
+    <select id="fuzzySearchProductByName" resultMap="BaseMapper" parameterType="string">
+        <include refid="BaseSql"/>
+        AND product_name LIKE CONCAT("%", #{productName}, "%")
+    </select>
+
+    <update id="updateProduct" parameterType="com.pojo.Product">
+        UPDATE product
+        <set>
+            <if test="productName != null">
+                product_name = #{productName},
+            </if>
+            <if test="productPrice != null">
+                product_price = #{productPrice},
+            </if>
+            <if test="productCategory != null">
+                product_category = #{productCategory},
+            </if>
+            <if test="productInventory != null">
+                product_inventory = #{productInventory},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="flag != null">
+                flag = #{flag}
+            </if>
+        </set>
+        WHERE
+        id = #{id}
+    </update>
+
 
 </mapper>
