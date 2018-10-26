@@ -5,7 +5,7 @@ import lombok.Getter;
 /**
  * @author：linma
  * @date: 2018/10/24 14:37
- * @email:linma@homeinn.com
+ * @email: linma@homeinns.com
  **/
 @Getter
 public class HomeinnsException extends RuntimeException {

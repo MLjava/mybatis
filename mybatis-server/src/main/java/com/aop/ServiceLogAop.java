@@ -17,7 +17,7 @@ import java.util.Enumeration;
 /**
  * @author：linma
  * @date: 2018/10/25 15:20
- * @email:linma@homeinn.com
+ * @email:linma@homeinns.com
  **/
 @Aspect
 @Component

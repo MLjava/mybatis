@@ -5,7 +5,7 @@ import lombok.Getter;
 /**
  * @author：linma
  * @date: 2018/10/24 17:41
- * @email:linma@homeinn.com
+ * @email: linma@homeinns.com
  **/
 @Getter
 public enum ProductEnum {

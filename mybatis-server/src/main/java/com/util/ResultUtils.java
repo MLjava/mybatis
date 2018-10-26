@@ -6,7 +6,7 @@ import com.exception.HomeinnsException;
 /**
  * @author：linma
  * @date: 2018/10/24 15:06
- * @email:linma@homeinn.com
+ * @email: inma@homeinns.com
  **/
 public class ResultUtils {
 

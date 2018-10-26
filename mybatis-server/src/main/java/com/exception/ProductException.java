@@ -5,7 +5,7 @@ import com.enums.ProductEnum;
 /**
  * @author：linma
  * @date: 2018/10/25 9:56
- * @email:linma@homeinn.com
+ * @email: inma@homeinns.com
  **/
 public class ProductException extends HomeinnsException {
 

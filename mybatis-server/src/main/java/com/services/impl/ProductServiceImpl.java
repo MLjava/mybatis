@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * @author：linma
  * @date: 2018/10/24 14:11
- * @email:linma@homeinn.com
+ * @email: linma@homeinns.com
  **/
 @Service
 @Slf4j

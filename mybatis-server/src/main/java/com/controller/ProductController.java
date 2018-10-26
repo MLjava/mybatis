@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * @author：linma
  * @date: 2018/10/24 15:15
- * @email:linma@homeinn.com
+ * @email: linma@homeinns.com
  **/
 @RestController
 @RequestMapping("/homeinns")

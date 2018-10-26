@@ -13,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * @author：linma
  * @date: 2018/10/24 15:35
- * @email:linma@homeinn.com
+ * @email: linma@homeinns.com
  **/
 @Configuration
 @EnableSwagger2

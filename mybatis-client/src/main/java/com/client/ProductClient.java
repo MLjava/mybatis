@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author：linma
  * @date: 2018/10/25 17:50
- * @email:linma@homeinn.com
+ * @email:linma@homeinns.com
  **/
 @FeignClient("MyBatis")
 @Component

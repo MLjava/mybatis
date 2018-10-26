@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 /**
  * @author：linma
  * @date: 2018/10/24 11:28
- * @email:linma@homeinn.com
+ * @email: linma@homeinns.com
  **/
 @SpringBootApplication
 @EnableDiscoveryClient

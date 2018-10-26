@@ -8,7 +8,7 @@ import com.pojo.Product;
 /**
  * @author：linma
  * @date: 2018/10/25 22:48
- * @email:linma@homeinn.com
+ * @email: inma@homeinns.com
  **/
 public class Product2ProductDTOConvert {
 

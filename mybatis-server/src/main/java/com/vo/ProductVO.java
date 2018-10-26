@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 /**
  * @author：linma
  * @date: 2018/10/24 15:01
- * @email:linma@homeinn.com
+ * @email: linma@homeinns.com
  **/
 @Data
 public class ProductVO {

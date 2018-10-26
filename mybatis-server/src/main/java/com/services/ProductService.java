@@ -5,7 +5,7 @@ import com.dto.ProductDTO;
 /**
  * @author：linma
  * @date: 2018/10/24 14:09
- * @email:linma@homeinn.com
+ * @email: linma@homeinns.com
  **/
 public interface ProductService {
 

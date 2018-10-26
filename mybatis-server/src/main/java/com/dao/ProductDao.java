@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 /**
  * @@author：linma
  * @date: 2018/10/24 14:09
- * @email:linma@homeinn.com
+ * @email: linma@homeinns.com
  */
 @Mapper
 @Repository

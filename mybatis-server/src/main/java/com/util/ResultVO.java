@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * @author：linma
  * @date: 2018/10/24 15:05
- * @email:linma@homeinn.com
+ * @email: linma@homeinns.com
  **/
 @Data
 public class ResultVO<T> {

@@ -6,7 +6,7 @@ import lombok.Getter;
 /**
  * @author：linma
  * @date: 2018/10/24 15:24
- * @email:linma@homeinn.com
+ * @email: linma@homeinns.com
  **/
 @Getter
 public class ResultException extends HomeinnsException {

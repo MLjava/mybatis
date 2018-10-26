@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 /**
  * @author：linma
  * @date: 2018/10/24 14:09
- * @email:linma@homeinn.com
+ * @email: linma@homeinns.com
  */
 @Data
 public class Product {

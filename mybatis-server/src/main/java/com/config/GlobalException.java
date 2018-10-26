@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author：linma
  * @date: 2018/10/25 18:37
- * @email:linma@homeinn.com
+ * @email: linma@homeinns.com
  **/
 @ControllerAdvice
 @RestController
