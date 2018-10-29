@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 @Aspect
 @Component
 @Slf4j
-public class ControllerParameterValidate {
+public class ControllerParameterValidateAop {
 
 //    @Pointcut("execution(public * com.controller..*.*(..))")
 //    private void controller() {
