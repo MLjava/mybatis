@@ -47,7 +47,7 @@ public class ProductController extends AbstractController {
         return ResultUtils.success(productVO);
     }
 
-    @PatchMapping("/insertproduct")
+    @PostMapping("/insertproduct")
     @ApiOperation(value = "增加商品信息", notes = "增加商品信息")
     public ResultVO insertProduct(@RequestBody Product product) {
         ProductDTO productDTO = Product2ProductDTOConvert.covert(product);
@@ -74,7 +74,7 @@ public class ProductController extends AbstractController {
     }
 
     @ApiOperation(value = "更新产品信息", notes = "更新产品信息")
-    @PostMapping("/updateproduct")
+    @PatchMapping("/updateproduct")
     public ResultVO updateProduct(@RequestBody Product product) {
         ProductDTO productDTO = Product2ProductDTOConvert.covert(product);
         flag = productService.updateProduct(productDTO);
