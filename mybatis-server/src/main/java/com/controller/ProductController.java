@@ -88,4 +88,17 @@ public class ProductController extends AbstractController {
         return ResultUtils.success(flag);
     }
 
+    @GetMapping("fuzzysearchproductbyname")
+    @ApiOperation(value = "模糊查询商品信息", notes = "模糊查询商品信息")
+    @ApiImplicitParam(name = "productName", value = "产品信息", dataType = "String",
+    paramType = "query")
+    public ResultVO fuzzySearchProductByName(String productName) {
+        List<ProductDTO> productDTOS = productService.fuzzySearchProductByName(productName);
+        List<ProductVO> productVOS = productDTOS.stream().map(productDTO -> {
+            ProductVO productVO = new ProductVO();
+            BeanUtils.copyProperties(productDTO, productVO);
+            return productVO;
+        }).collect(Collectors.toList());
+        return ResultUtils.success(productVOS);
+    }
 }

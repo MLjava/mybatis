@@ -108,4 +108,21 @@ public class ProductServiceImpl extends AbstractService implements ProductServic
         int record = productDao.updateProduct(product);
         return record > 0;
     }
+
+    @Override
+    public List<ProductDTO> fuzzySearchProductByName(String productName) {
+        if (StringUtils.isEmpty(productName)) {
+            throw new ProductException(ProductEnum.PRODUCT_NAME_NOT_NULL);
+        }
+        List<Product> products = productDao.fuzzySearchProductByName(productName);
+        if (products.size() == 0) {
+            throw new ProductException(ProductEnum.PRODUCT_NOT_EXIST);
+        }
+        List<ProductDTO> productDTOS = products.stream().map(product -> {
+            ProductDTO productDTO = new ProductDTO();
+            BeanUtils.copyProperties(product, productDTO);
+            return productDTO;
+        }).collect(Collectors.toList());
+        return productDTOS;
+    }
 }

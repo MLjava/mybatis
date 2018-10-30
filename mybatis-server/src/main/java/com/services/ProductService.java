@@ -51,4 +51,12 @@ public interface ProductService {
      * @return
      */
     boolean deleteProduct(Integer productId);
+
+    /**
+     * 根据产品名称，模糊查询产品信息
+     *
+     * @param productName
+     * @return
+     */
+    List<ProductDTO> fuzzySearchProductByName(String productName);
 }
