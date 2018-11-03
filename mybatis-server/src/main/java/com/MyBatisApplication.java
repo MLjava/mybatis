@@ -16,6 +16,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class MyBatisApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MyBatisApplication.class);
+        SpringApplication.run(MyBatisApplication.class, args);
     }
 }

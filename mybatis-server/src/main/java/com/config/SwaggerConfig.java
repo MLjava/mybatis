@@ -31,8 +31,8 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("mybatis")
-                .description("mybatis测试接口")
+                .title("Product")
+                .description("产品接口")
                 .version("1.0")
                 .build();
     }

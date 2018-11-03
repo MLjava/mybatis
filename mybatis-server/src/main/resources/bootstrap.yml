@@ -6,7 +6,7 @@ spring:
     username: root
     password: malin
   application:
-    name:
+    name: mybatis
 # mybatis配置
 mybatis:
   mapper-locations: classpath:/mapping/**/*Mapper.xml
