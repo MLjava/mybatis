@@ -101,4 +101,9 @@ public class ProductController extends AbstractController {
         }).collect(Collectors.toList());
         return ResultUtils.success(productVOS);
     }
+
+    @GetMapping("/congratulations")
+    public String congratulations() {
+        return "恭喜，敬爱的工程师，您的feign接口调用成功！";
+    }
 }

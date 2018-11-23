@@ -4,8 +4,6 @@ import com.MyBatisApplicationTests;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.junit.Assert.*;
-
 /**
  * @author：linma
  * @date: 2018/10/25 9:43
