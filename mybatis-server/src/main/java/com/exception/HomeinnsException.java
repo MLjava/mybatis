@@ -1,5 +1,6 @@
 package com.exception;
 
+import com.enums.CommonEnum;
 import lombok.Getter;
 
 /**
@@ -15,6 +16,10 @@ public class HomeinnsException extends RuntimeException {
     public HomeinnsException(Integer code, String message) {
         super(message);
         this.code = code;
+    }
+
+    public HomeinnsException(CommonEnum commonEnum) {
+        this(commonEnum.getCode(), commonEnum.getMessage());
     }
 
 }
