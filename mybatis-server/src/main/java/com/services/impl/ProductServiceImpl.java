@@ -74,12 +74,11 @@ public class ProductServiceImpl extends AbstractService implements ProductServic
             throw new ProductException(ProductEnum.PRODUCT_IS_EMPTY);
         }
         // - 使用stream表达式
-        List<ProductDTO> productDTOS = products.stream().map(product -> {
+        return products.stream().map(product -> {
              ProductDTO productDTO = new ProductDTO();
              BeanUtils.copyProperties(product, productDTO);
              return productDTO;
          }).collect(Collectors.toList());
-        return productDTOS;
     }
 
     @Override
@@ -118,11 +117,10 @@ public class ProductServiceImpl extends AbstractService implements ProductServic
         if (products.size() == 0) {
             throw new ProductException(ProductEnum.PRODUCT_NOT_EXIST);
         }
-        List<ProductDTO> productDTOS = products.stream().map(product -> {
+        return products.stream().map(product -> {
             ProductDTO productDTO = new ProductDTO();
             BeanUtils.copyProperties(product, productDTO);
             return productDTO;
         }).collect(Collectors.toList());
-        return productDTOS;
     }
 }

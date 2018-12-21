@@ -40,8 +40,7 @@ public class ProductController extends AbstractController {
             paramType = "query")
     @GetMapping("/getproductbyid")
     public ResultVO getProductById(Integer productId) {
-        ProductDTO productDTO = null;
-        productDTO = productService.getProductBId(productId);
+        ProductDTO productDTO = productService.getProductBId(productId);
         ProductVO productVO = new ProductVO();
         BeanUtils.copyProperties(productDTO, productVO);
         return ResultUtils.success(productVO);

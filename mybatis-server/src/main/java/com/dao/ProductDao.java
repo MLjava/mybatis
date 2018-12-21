@@ -1,7 +1,6 @@
 package com.dao;
 
 import com.pojo.Product;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,7 +10,6 @@ import java.util.List;
  * @date: 2018/10/26 10:18
  * @email: linma@homeinns.com
  **/
-@Mapper
 @Repository
 public interface ProductDao {
 

@@ -19,10 +19,10 @@ public abstract class AbstractService {
      */
     protected Map<String, Integer> validatePager(Integer startPage, Integer pageSize) {
         Map<String, Integer> map = new HashMap<>(16);
-        if (startPage <= 0 || startPage == null) {
+        if (startPage == null ||startPage <= 0) {
             startPage = 1;
         }
-        if (pageSize <= 0 || pageSize == null) {
+        if (pageSize == null || pageSize <= 0) {
             pageSize = 5;
         }
         map.put("startPage", startPage);
